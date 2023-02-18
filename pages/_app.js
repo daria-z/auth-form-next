@@ -1,5 +1,14 @@
 import '@/styles/globals.css'
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import { AnimatePresence } from "framer-motion";
+
+export default function App({ Component, pageProps, router }) {
+  return (
+    <AnimatePresence mode="wait">
+      <Component key={router.pathname} {...pageProps} />
+    </AnimatePresence>
+  );
 }
+
+
+
